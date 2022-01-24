@@ -20,6 +20,7 @@ namespace Pfruck.Repad
             // Programatically creating route and cluster configs. This allows loading the data from an arbitrary source.
             services.AddReverseProxy()
                 .LoadFromMemory(ProxyEntries.GetRoutes(), ProxyEntries.GetClusters());
+            services.AddRazorPages();
         }
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pfruck.Repad
             {
                 // We can customize the proxy pipeline and add/remove/replace steps
                 endpoints.MapReverseProxy();
+                endpoints.MapRazorPages().RequireHost("localhost");
             });
         }
     }

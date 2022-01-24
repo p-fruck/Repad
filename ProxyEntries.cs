@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using YamlDotNet.Serialization.NamingConventions;
 using Yarp.ReverseProxy.Configuration;
@@ -56,7 +57,12 @@ namespace Pfruck.Repad
 
     public class ProxyEntries
     {
-        static List<ProxyEntry> _entries = new List<ProxyEntry>();
+        private static List<ProxyEntry> _entries = new List<ProxyEntry>();
+
+        public static ReadOnlyCollection<ProxyEntry> Entries
+        {
+            get { return _entries.AsReadOnly(); }
+        }
 
         public static void Init()
         {

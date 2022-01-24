@@ -1,0 +1,13 @@
+@page
+@namespace Pfruck.Repad
+@{
+    Layout = "_Layout";
+}
+<ul>
+    @foreach (var entry in ProxyEntries.Entries)
+    {
+        <li>
+            <a href="http://@(entry.Id).@(HttpContext.Request.Host)">@entry.Name</a>
+        </li>
+    }
+</ul>
