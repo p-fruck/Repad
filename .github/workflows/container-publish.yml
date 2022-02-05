@@ -6,8 +6,6 @@ name: Container
 # documentation.
 
 on:
-  schedule:
-    - cron: '19 9 * * *'
   push:
     branches: [ main ]
     # Publish semver tags as releases.
